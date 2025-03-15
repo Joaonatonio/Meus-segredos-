@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo dos Segredos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+            flex-direction: column;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .secrets-container {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .secrets-container ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .secrets-container li {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .input-container {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .input-container input {
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        .input-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Jogo dos Segredos</h1>
+
+    <button id="secretButton">Segredos</button>
+
+    <div id="passwordContainer" class="input-container">
+        <input type="password" id="passwordInput" placeholder="Digite a senha" />
+        <button id="loginButton">Entrar</button>
+    </div>
+
+    <div id="secretsContainer" class="secrets-container">
+        <h2>Meus Segredos</h2>
+        <ul id="secretsList">
+            <li>Segredo 1: Eu já fui gay nos 4 anos de idade porque me falaram que ser gay ganhava milhões, só que só fiquei nessa até eu pesquisar e descobrir que não ganhava.</li>
+            <li>Segredo 2: Já roubei uma bala no mercado.</li>
+            <li>Segredo 3: Eu já roubei mais de 100 balas e pirulitos na loja do meu pai.</li>
+            <li>Segredo 4: Eu já chupei... Um picolé.</li>
+            <li>Segredo 5: Eu odeio minha vida.</li>
+        </ul>
+    </div>
+
+    <script>
+        const secretButton = document.getElementById("secretButton");
+        const passwordContainer = document.getElementById("passwordContainer");
+        const loginButton = document.getElementById("loginButton");
+        const passwordInput = document.getElementById("passwordInput");
+        const secretsContainer = document.getElementById("secretsContainer");
+
+        const password = "6976910shadow"; // Senha para acessar os segredos
+
+        // Exibir a tela de login para o usuário
+        secretButton.addEventListener("click", () => {
+            passwordContainer.style.display = "block";
+            secretButton.style.display = "none";
+        });
+
+        // Validar senha
+        loginButton.addEventListener("click", () => {
+            if (passwordInput.value === password) {
+                passwordContainer.style.display = "none";
+                secretsContainer.style.display = "block";
+            } else {
+                alert("Senha incorreta!");
+            }
+        });
+    </script>
+
+</body>
+</html>
